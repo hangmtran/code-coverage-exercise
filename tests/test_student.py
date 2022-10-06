@@ -4,12 +4,17 @@ def test_init():
     name = "Ada Lovelace"
     level = "sophomore"
     courses = ["mathematics", "foundations of computing"]
+    courses = []
 
     ada = Student(name, level, courses)
 
     assert ada.name == name
     assert ada.level == level
     assert ada.courses == courses
+
+def test_init_courses_empty_list():
+    Puja= Student("Puja", "junior", courses=None)
+    assert Puja.courses ==[]
 
 def test_add_class():
     new_class = 'Intro to Feminism'
@@ -40,5 +45,24 @@ def test_get_student_with_more_classes():
         "sophomore",
         ["mathematics", "foundations of computing"]
     )
-
+    result = get_student_with_more_classes(ada, charles)
     # TODO: write assertions
+    #assert
+    assert result == ada
+
+def test_get_student_with_more_classes():
+    charles = Student("Charles Babbage", "senior", ["mechanical engineering"])
+    ada = Student(
+        "Ada Lovelace",
+        "sophomore",
+        ["mathematics", "foundations of computing"]
+    )
+    result = get_student_with_more_classes(charles, ada)
+    # TODO: write assertions
+    #assert
+    assert result == ada
+
+
+
+
+
